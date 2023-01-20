@@ -17,9 +17,9 @@ public class Validate
 
 
 
-        char[] Characters = Name.toCharArray();
+        char[] characters = Name.toCharArray();
 
-        for(char c : Characters)
+        for(char c : characters)
         {
             int ascii = c;
 
@@ -48,9 +48,10 @@ public class Validate
             // checking if there is an uppercase mid string
             if (Name.indexOf(c) != 0)
             {
-                if (Character.isUpperCase(c))
+                int asc = Name.charAt(Name.indexOf(c)-1);
+                if (Character.isUpperCase(c) && ((asc != 32) || (asc != 45) || (asc != 46) || (asc != 39)))
                 {
-                    System.err.println("Invalid input! Name cannot contain an uppercase except for the 1st letter");
+                    System.err.println("Invalid input! Name cannot contain an uppercase except for the 1st letter or if that uppercase is preceded by authorised special characters");
                     return false;
                 }
             }
