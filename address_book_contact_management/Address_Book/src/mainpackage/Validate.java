@@ -8,15 +8,59 @@ public class Validate
 {
     public boolean validate_Name(String Name)
     {
+        //check if name starts with an upper Case
+        if(!Character.isUpperCase(Name.charAt(0)))
+        {
+            System.err.println("Name must start with an Upper Case");
+            return false;
+        }
+
+
+
         char[] Characters = Name.toCharArray();
 
         for(char c : Characters)
         {
+            int ascii = c;
+
+            // check if Name starts with a special character
+            if (Name.indexOf(c) == 0)
+            {
+                if ((ascii <= 47) || (ascii >= 58 &&  ascii <= 64) || (ascii >= 91 && ascii <= 96) || (ascii >= 123))
+                {
+                    System.err.println("Invalid input! Name cannot start with a special characters");
+                    return false;
+                }
+            }
+
+
+            // check if Name starts a number letter
+            if (Name.indexOf(c) == 0)
+            {
+                if ((ascii <= 48 || ascii >= 57))
+                {
+                    System.err.println("Invalid input! Name cannot start with a number");
+                    return false;
+                }
+            }
+
+
+            // checking if there is an uppercase mid string
+            if (Name.indexOf(c) != 0)
+            {
+                if (Character.isUpperCase(c))
+                {
+                    System.err.println("Invalid input! Name cannot contain an uppercase except for the 1st letter");
+                    return false;
+                }
+            }
+
+
             if (Character.isDigit(c)) {
                 System.err.println("Invalid input! Name cannot contain a Number");
                 return false;
             }
-            int ascii = c;
+
             if ((ascii >= 33 && ascii <= 38) || (ascii >= 40 &&  ascii <= 44) || ascii == 47 || (ascii >= 58 && ascii <= 64) || (ascii >= 91 && ascii <= 96) || ascii >= 123)
             {
                 System.err.println("Invalid input! Name cannot contain any other special characters apart period (.), apostrophe ('), hyphen/dash (-), and spaces");
