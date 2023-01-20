@@ -49,7 +49,7 @@ public class Validate
             if (Name.indexOf(c) != 0)
             {
                 int asc = Name.charAt(Name.indexOf(c)-1);
-                if (Character.isUpperCase(c) && ((asc == 32) || (asc == 45) || (asc == 46) || (asc == 39)))
+                if (Character.isUpperCase(c) && ((asc != 32) || (asc != 45) || (asc != 46) || (asc != 39)))
                 {
                     System.err.println("Invalid input! Name cannot contain an uppercase except for the 1st letter");
                     return false;
