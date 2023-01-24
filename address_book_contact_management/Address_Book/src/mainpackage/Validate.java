@@ -8,6 +8,11 @@ public class Validate
 {
     public boolean validate_Name(String Name)
     {
+        if (Name.equals(""))
+        {
+            System.out.println("Field cannot be left blank");
+            return false;
+        }
         //check if name starts with an upper Case
         if(!Character.isUpperCase(Name.charAt(0)))
         {
@@ -37,7 +42,7 @@ public class Validate
             // check if Name starts a number letter
             if (Name.indexOf(c) == 0)
             {
-                if ((ascii <= 48 || ascii >= 57))
+                if (Character.isDigit(c))
                 {
                     System.err.println("Invalid input! Name cannot start with a number");
                     return false;

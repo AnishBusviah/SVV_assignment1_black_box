@@ -138,8 +138,16 @@ public class Add extends Main{
 
 
 		}while (duplicate == true || valid == false);
-		System.out.println("Give Street Name: ");
-		f6 = input.nextLine();
+
+		valid = false;
+
+		while (!valid)
+		{
+			System.out.println("Give Street Name: ");
+			f6 = input.nextLine();
+			valid = check.validate_Name(f6);
+		}
+
 		System.out.println("Give street number: ");
 		//f7 = input.nextInt();
 		do {
@@ -152,8 +160,16 @@ public class Add extends Main{
 				valid = false;
 			}
 		}while(valid == false);
-		System.out.println("Give town Name: ");
-		f8 = input.nextLine();
+
+		valid = false;
+
+		while (!valid)
+		{
+			System.out.println("Give town Name: ");
+			f8 = input.nextLine();
+			valid = check.validate_Name(f8);
+		}
+
 		//System.out.println("Give Zip code: ");
 		//f9 = input.nextInt();
 
@@ -171,8 +187,9 @@ public class Add extends Main{
 				valid = false;
 			}*/
 		}while(valid == false);
-		if(f1 == "" || f2 == "" || f5 == "" || f6 == "" || f8 == "" || f3 == -1 || f4 == -1 || f7 == -1 || f9 == "") {//i check that all variables have a valid attribute assigned
+		if(f1 == "" || f2 == "" || f5 == "" || f6.equals("") || f8.equals("") || f3 == -1 || f4 == -1 || f7 == -1 || f9 == "") {//i check that all variables have a valid attribute assigned
 			System.out.println("You gave false inputs, adding new contact wasn't successful: ");
+
 		}
 		else {//if everything is correct i build a string
 			str = f1 + "," + f2 + "," + String.valueOf(f3) + "," + String.valueOf(f4) + "," + f5 + "," + f6 + "," + String.valueOf(f7) + "," + f8 + "," + String.valueOf(f9);
@@ -181,7 +198,7 @@ public class Add extends Main{
 			out.close();
 			System.out.println("Entry was successful!");
 		}
-		//input.close();
+		// input.close();
 		//writer1.close();
 		writer.close(); 
 		reader1.close(); 
