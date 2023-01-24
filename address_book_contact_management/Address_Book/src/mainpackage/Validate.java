@@ -8,6 +8,7 @@ public class Validate
 {
     public boolean validate_Name(String Name)
     {
+
         if (Name.equals(""))
         {
             System.out.println("Field cannot be left blank");
@@ -33,7 +34,7 @@ public class Validate
             {
                 if ((ascii <= 47) || (ascii >= 58 &&  ascii <= 64) || (ascii >= 91 && ascii <= 96) || (ascii >= 123))
                 {
-                    System.err.println("Invalid input! Name cannot start with a special characters");
+                    System.err.println("Invalid input!\nName cannot start with a special characters");
                     return false;
                 }
             }
@@ -53,12 +54,28 @@ public class Validate
             // checking if there is an uppercase mid string
             if (Name.indexOf(c) != 0)
             {
-                int asc = Name.charAt(Name.indexOf(c)-1);
-                if (Character.isUpperCase(c) && ((asc != 32) || (asc != 45) || (asc != 46) || (asc != 39)))
+
+
+                //System.out.println(prevChar + "\n" + asc + "\n" + Name.charAt(Name.indexOf(c)));
+                if (Character.isUpperCase(c) == true)
                 {
-                    System.err.println("Invalid input! Name cannot contain an uppercase except for the 1st letter or if that uppercase is preceded by authorised special characters");
-                    return false;
+                    //asc means ascii
+                    int asc = Name.charAt(Name.indexOf(c)-1);
+                    //char prevChar = (char) asc;
+                    //System.out.println(asc == 45);
+                    //System.out.println(prevChar);
+
+                    if ((asc == 32) || (asc == 45) || (asc == 46) || (asc == 39))
+                    {
+
+                    }
+                    else
+                    {
+                        System.err.println("Invalid input!\nName cannot contain an uppercase except for\nthe 1st letter or if that uppercase\nis preceded by authorised special characters");
+                        return false;
+                    }
                 }
+
             }
 
 
@@ -69,7 +86,7 @@ public class Validate
 
             if ((ascii >= 33 && ascii <= 38) || (ascii >= 40 &&  ascii <= 44) || ascii == 47 || (ascii >= 58 && ascii <= 64) || (ascii >= 91 && ascii <= 96) || ascii >= 123)
             {
-                System.err.println("Invalid input! Name cannot contain any other special characters apart period (.), apostrophe ('), hyphen/dash (-), and spaces");
+                System.err.println("Invalid input!\nName cannot contain any other\nspecial characters apart period (.),\napostrophe ('), hyphen/dash (-), and spaces");
                 return false;
             }
         }
@@ -116,13 +133,13 @@ public class Validate
     {
         if (zipcode.length() != 10)
         {
-            System.err.println("Invalid zipcode length! A zipcode must start with 5-digits followed by a hyphen(-) then end with 4 digits");
+            System.err.println("Invalid zipcode length!\nA zipcode must start with 5-digits\nfollowed by a hyphen(-) then end with 4 digits");
             return false;
         }
 
         if (!(zipcode.substring(5,6).equals("-")))
         {
-            System.err.println("Invalid zipcode! A zipcode must start with 5-digits followed by a hyphen(-) then end with 4 digits");
+            System.err.println("Invalid zipcode!\nA zipcode must start with 5-digits\nfollowed by a hyphen(-) then end with 4 digits");
             return false;
         }
 
@@ -136,7 +153,7 @@ public class Validate
         {
             if (!Character.isDigit(c))
             {
-                System.err.println("Invalid character detected! A zipcode must start with 5-digits followed by a hyphen(-) then end with 4 digits");
+                System.err.println("Invalid character detected!\nA zipcode must start with 5-digits followed\nby a hyphen(-) then end with 4 digits");
                 return false;
             }
         }
@@ -149,7 +166,7 @@ public class Validate
         {
             if (!Character.isDigit(c))
             {
-                System.err.println("Invalid character detected! A zipcode must start with 5-digits followed by a hyphen(-) then end with 4 digits");
+                System.err.println("Invalid character detected!\nA zipcode must start with 5-digits followed\nby a hyphen(-) then end with 4 digits");
                 return false;
             }
         }

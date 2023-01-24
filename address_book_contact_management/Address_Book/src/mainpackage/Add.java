@@ -31,7 +31,7 @@ public class Add extends Main{
 
 		while (!validation)
 		{
-			System.out.println("Give First Name: ");
+			System.out.println("\nGive First Name: ");
 			f1 = input.nextLine();
 			validation = check.validate_Name(f1);
 		}
@@ -148,9 +148,10 @@ public class Add extends Main{
 			valid = check.validate_Name(f6);
 		}
 
-		System.out.println("Give street number: ");
+
 		//f7 = input.nextInt();
 		do {
+			System.out.println("Give street number: ");
 			valid = true;
 			try {
 			    f7 = Integer.parseInt(input.nextLine());
